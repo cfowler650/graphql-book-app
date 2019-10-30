@@ -2,8 +2,12 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql'); //required for express server to understand graphql and allows it to run graphql api
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+
+//allow cross origin requests
+app.use(cors());
 
 //connect to mongo.atlas database
 mongoose.connect(`mongodb+srv://guest:guest123@book-app-iw4yw.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
